@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore Firebase 9</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
 </head>
-<body>
-    <h1>Getting ready to use firebase 9</h1>
 
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="column column-50 column-offset-25">
+                <h1>Getting ready to use firebase 9</h1>
+                <form class="add">
+                    <fieldset>
+                        <label for="name">Name</label><input type="text" id="name" required>
+                        <label for="url">Url</label><input type="url" id="url" required>
+                        <label for="description">Description</label><textarea id="description" cols="30"
+                            rows="10"></textarea>
+                        <label for="type">Type</label>
+                        <select id="type">
+                            <option value="blog">blog</option>
+                            <option value="video">video</option>
+                            <option value="tutorial">tutorial</option>
+                        </select>
+                        <button>Add a material</button>
+                    </fieldset>
+                </form>
+                <form class="delete">
+                    <fieldset>
+                        <label for="id">Id to erase</label>
+                        <input type="text" name="id" id="id" required>
+                        <button>Delete material</button>
+                </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
     <script src="bundle.js"></script>
 </body>
+
 </html>
