@@ -7,7 +7,10 @@ import {
 import {
   getFirestore,
   collection,
-  getDocs
+  getDocs,
+  addDoc,
+  deleteDoc,
+  doc
 } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
@@ -41,3 +44,27 @@ getDocs(colRef)
   .catch((err) => {
     console.log(err.message);
   })
+
+const addMaterialForm = document.querySelector('.add');
+addMaterialForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  addDoc(colRef, {
+      description: addMaterialForm.description.value,
+      name: addMaterialForm.name.value,
+      type: addMaterialForm.type.value,
+      url: addMaterialForm.url.value
+    })
+    .then(() => {
+      addMaterialForm.reset();
+    })
+})
+
+const deleteMaterialForm = document.querySelector('.delete');
+deleteMaterialForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const docRef = doc(db, 'materials', deleteMaterialForm.id.value);
+  deleteDoc(docRef)
+  .then(() => {
+    deleteMaterialForm.reset();
+  })
+})
